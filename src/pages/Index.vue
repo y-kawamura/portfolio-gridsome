@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <h1 class="
-      text-6xl font-logo text-yellow-400
+      text-6xl font-bold font-logo text-yellow-400
       h-screen flex justify-center items-center flex-col
       overflow-hidden-y
     ">
@@ -20,7 +20,7 @@
         <span
           v-for="(word, index) in [wordCoding, wordPenta]"
           :key="index"
-          class="flex"
+          class="flex mx-2"
         >
           <EraseCharacter 
             v-for="char in word"

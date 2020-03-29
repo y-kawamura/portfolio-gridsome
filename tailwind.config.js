@@ -2,7 +2,7 @@ module.exports = {
   theme: {
     extend:{
       fontFamily: {
-        'logo': ['Indie Flower', 'cursive'],
+        'logo': ['Roboto Mono', 'monospace'],
       }
     }
   },
