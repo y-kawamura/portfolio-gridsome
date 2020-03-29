@@ -1,33 +1,54 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <h1 class="
+      text-6xl font-logo text-yellow-400
+      h-screen flex justify-center items-center flex-col
+      overflow-hidden-y
+    ">
+      <span
+        v-for="(word, index) in [wordWelcome, wordTo]"
+        :key="index"
+        class="flex"
+      >
+        <EraseCharacter 
+          v-for="char in word"
+          :key="char.id"
+          :character="char"
+        />
+      </span>
+      <div class="flex">
+        <span
+          v-for="(word, index) in [wordCoding, wordPenta]"
+          :key="index"
+          class="flex"
+        >
+          <EraseCharacter 
+            v-for="char in word"
+            :key="char.id"
+            :character="char"
+          />
+        </span>
+      </div>
+    </h1>
   </Layout>
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex';
+import EraseCharacter from '~/components/EraseCharacter';
+
 export default {
-  metaInfo: {
-    title: 'Hello, world!'
-  }
+  components: {
+    EraseCharacter,
+  },
+  data() {
+    return {
+      message: 'Welcome to Coding Penta',
+    };
+  },
+  computed: {
+    ...mapState(['wordWelcome', 'wordTo', 'wordCoding', 'wordPenta']),
+    ...mapGetters(['isEraseWordWelcome', 'isEraseWordTo', 'isEraseWordCoding', 'isEraseWordPenta']),
+  },
 }
 </script>
-
-<style>
-.home-links a {
-  margin-right: 1rem;
-}
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white h-screen">
+  <div class="bg-white h-screen overflow-hidden">
     <!-- header -->
     <div class="fixed top-0 w-full bg-white">
       <header
@@ -10,8 +10,8 @@
             fixed left-0 w-full px-4 bg-white md:static md:w-auto md:px-0
             h-16
           ">
-          <span class="font-logo text-3xl tracking-tight">
-            <g-link to="/">{{ $static.metadata.siteName }}</g-link>
+          <span @click="home" class="font-logo text-3xl select-none cursor-pointer">
+            {{ $static.metadata.siteName }}
           </span>
           <div class="block md:hidden">
             <button
@@ -92,6 +92,8 @@ query {
 </static-query>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   data() {
     return {
@@ -99,9 +101,14 @@ export default {
     };
   },
   methods: {
+    ...mapActions({ refreshMessage: 'clearErase' }),
     toggleMenu() {
       this.isShowMenu = !this.isShowMenu;
-    }
+    },
+    home() {
+      this.refreshMessage();
+      this.$router.push({ path: '/' }, () => {});
+    },
   }
 };
 </script>
