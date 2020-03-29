@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Coding Penta',
   plugins: [
     {
       use: '@gridsome/source-contentful',
@@ -15,6 +15,17 @@ module.exports = {
         host: 'cdn.contentful.com',
         environment: 'master',
         typeName: 'Contentful'
+      }
+    },
+    {
+      use: 'gridsome-plugin-tailwindcss',
+      options: {
+        tailwindConfig: './tailwind.config.js',
+        purgeConfig: {},
+        presetEnvConfig: {},
+        shouldPurge: true,
+        shouldImport: true,
+        shouldTimeTravel: true
       }
     }
   ]
