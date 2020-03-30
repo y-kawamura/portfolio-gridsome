@@ -2,7 +2,7 @@
   <div 
     :class="darkMode ? 'dark' : 'light'"
     class="
-      bg-background h-screen overflow-hidden
+      bg-background h-min-screen
       transition-color duration-1000 ease-in-out
     "
   >
@@ -128,10 +128,11 @@ export default {
 
 <style>
 .dark {
-  --color-background: #292929;
-  --color-surface: #292929;
-  --color-primary: #03DAC5;
-  --color-secondary: #BB86FC;
+  /* --color-background: #292929; */
+  --color-background: theme('colors.gray.800');
+  --color-surface: theme('colors.gray.700');
+  --color-primary: theme('colors.teal.200');
+  --color-secondary: theme('colors.purple.200');
   --color-onbackground: #A4A4A4;
   --color-onsurface: #E1E1E1;
   --color-onprimary: #20162A;
@@ -139,10 +140,11 @@ export default {
 }
 
 .light {
-  --color-background: #fcfcfc;
-  --color-surface: #fff;
-  --color-primary: #03DAC5;
-  --color-secondary: #674AEE;
+  /* --color-background: #fcfcfc; */
+  --color-background: theme('colors.gray.300');
+  --color-surface: theme('colors.gray.100');
+  --color-primary: theme('colors.teal.500');;
+  --color-secondary: theme('colors.purple.500');
   --color-onbackground: #727272;
   --color-onsurface: #202020;
   --color-onprimary: #EADEFC;

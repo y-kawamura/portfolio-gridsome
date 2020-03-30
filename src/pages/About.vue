@@ -1,14 +1,45 @@
 <template>
   <Layout>
-    <h1>About us</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error doloremque omnis animi, eligendi magni a voluptatum, vitae, consequuntur rerum illum odit fugit assumenda rem dolores inventore iste reprehenderit maxime! Iusto.</p>
+    <div overflow-y-scroll h-screen>
+      <h1 class="text-4xl font-logo text-onbackground text-center">Skills</h1>
+      <div class="flex flex-wrap">
+        <SkillCard
+          v-for="skill in $page.allContentfulSkiil.edges"
+          :key="skill.node.id"
+          :skill=skill.node
+          class="m-2"
+        />
+      </div>
+    </div>
   </Layout>
 </template>
 
-<script>
-export default {
-  metaInfo: {
-    title: 'About us'
+<page-query>
+query {
+  allContentfulSkiil {
+    edges {
+      node {
+        id
+        name
+        rate
+        type
+        logo {
+          file {
+						url
+          }
+        }
+      }
+    }
   }
 }
+</page-query>
+
+<script>
+import SkillCard from '~/components/SkillCard';
+
+export default {
+  components: {
+    SkillCard
+  },
+};
 </script>

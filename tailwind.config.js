@@ -13,6 +13,18 @@ module.exports = {
         'onsurface': 'var(--color-onsurface)',
         'onprimary': 'var(--color-onprimary)',
         'onsecondary': 'var(--color-onsecondary)',
+      },
+      width: {
+        '10/100': '10%',
+        '20/100': '20%',
+        '30/100': '30%',
+        '40/100': '40%',
+        '50/100': '50%',
+        '60/100': '60%',
+        '70/100': '70%',
+        '80/100': '80%',
+        '90/100': '90%',
+        '100/100': '100%',
       }
     },
   },
