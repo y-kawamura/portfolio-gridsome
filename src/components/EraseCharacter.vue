@@ -2,8 +2,9 @@
   <span 
     @mouseover="onMouseOver"
     @mouseout="onMouseOut"
-    :class="character.isErase ? 'opacity-0' : 'opacity-100'"
-    class="transition-opacity duration-500 ease-in-out"
+    :class="character.isErase ? 'opacity-0 translate-y-64' : 'opacity-100 translate-y-0'"
+    class="transition-all duration-500 ease-in-out transform"
+
   >
     {{ character.char }}
   </span>

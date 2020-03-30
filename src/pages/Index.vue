@@ -16,7 +16,7 @@
           :character="char"
         />
       </span>
-      <div class="flex">
+      <div class="flex flex-col justify-center items-center md:flex-row">
         <span
           v-for="(word, index) in [wordCoding, wordPenta]"
           :key="index"

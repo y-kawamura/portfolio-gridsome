@@ -1,22 +1,29 @@
 <template>
-  <div class="bg-white h-screen overflow-hidden">
+  <div 
+    :class="darkMode ? 'dark' : 'light'"
+    class="
+      bg-background h-screen overflow-hidden
+      transition-color duration-1000 ease-in-out
+    "
+  >
     <!-- header -->
-    <div class="fixed top-0 w-full bg-white">
+    <div class="fixed top-0 w-full bg-background">
       <header
-        class="container mx-auto px-4 text-teal-400 pb-1 md:pb-0 md:flex md:justify-between md:items-center">
+        class="container mx-auto px-4 text-primary pb-1 md:pb-0 md:flex md:justify-between md:items-center">
         <div
           class="
             flex justify-between items-center
-            fixed left-0 w-full px-4 bg-white md:static md:w-auto md:px-0
+            fixed left-0 w-full px-4 bg-background md:static md:w-auto md:px-0
             h-16
-          ">
-          <span @click="home" class="font-logo text-3xl select-none cursor-pointer">
+          "
+        >
+          <span @click="home" class="font-logo text-3xl tracking-tighter select-none cursor-pointer">
             {{ $static.metadata.siteName }}
           </span>
           <div class="block md:hidden">
             <button
               @click="toggleMenu"
-              class="flex items-center px-3 py-2 rounded text-teal-200 focus:outline-none"
+              class="flex items-center px-3 py-2 rounded text-primary focus:outline-none"
             >
               <svg 
                 class="fill-current h-6 w-6"
@@ -30,31 +37,31 @@
           </div>
         </div>
         <nav
-          :class="isShowMenu ? 'opacity-100' : 'opacity-0'"
+          :class="isShowMenu ? 'opacity-100 block' : 'opacity-0 hidden'"
           class="
-            md:opacity-100
-            fixed left-0 w-full bg-white md:static md:w-auto
+            md:opacity-100 md:block
+            fixed left-0 w-full bg-background md:static md:w-auto
             mt-16 md:mt-0
             px-4 md:px-0
-            transition-opacity duration-300 ease-in-out
+            transition-opacity duration-1000 ease-in-out
           ">
           <ul class="md:flex">
-            <li class="border-b border-teal-200 md:border-none">
+            <li class="border-b border-primary md:border-none">
               <g-link
                 class="
                   block px-8 py-3 my-2
-                  text-teal-200 hover:bg-teal-800
+                  text-primary hover:bg-primary hover:text-onprimary active:bg-primary active:text-onprimary
                   transition duration-300 ease-in-out
                   rounded text-center"
                 to="/"
                 >Home</g-link
               >
             </li>
-            <li class="border-b border-teal-200 md:border-none">
+            <li class="border-b border-primary md:border-none">
               <g-link
                 class="
                   block px-8 py-3 my-2
-                  text-teal-200 hover:bg-teal-800
+                  text-primary hover:bg-primary hover:text-onprimary
                   transition duration-300 ease-in-out
                   rounded text-center"
                 to="/about"
@@ -65,7 +72,7 @@
               <g-link
                 class="
                   block px-8 py-3 my-2
-                  text-teal-200 hover:bg-teal-800
+                  text-primary hover:bg-primary hover:text-onprimary
                   transition duration-300 ease-in-out
                   rounded text-center"
                 to="/portfolio"
@@ -92,13 +99,19 @@ query {
 </static-query>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   data() {
     return {
-      isShowMenu: false
+      isShowMenu: false,
     };
+  },
+  computed: {
+    ...mapGetters(['isEraseAllWord']),
+    darkMode() {
+      return this.isEraseAllWord;
+    },
   },
   methods: {
     ...mapActions({ refreshMessage: 'clearErase' }),
@@ -109,6 +122,32 @@ export default {
       this.refreshMessage();
       this.$router.push({ path: '/' }, () => {});
     },
-  }
+  },
 };
 </script>
+
+<style>
+.dark {
+  --color-background: #292929;
+  --color-surface: #292929;
+  --color-primary: #03DAC5;
+  --color-secondary: #BB86FC;
+  --color-onbackground: #A4A4A4;
+  --color-onsurface: #E1E1E1;
+  --color-onprimary: #20162A;
+  --color-onsecondary: #20162A;
+}
+
+.light {
+  --color-background: #fcfcfc;
+  --color-surface: #fff;
+  --color-primary: #03DAC5;
+  --color-secondary: #674AEE;
+  --color-onbackground: #727272;
+  --color-onsurface: #202020;
+  --color-onprimary: #EADEFC;
+  --color-onsecondary: #fff;
+
+}
+
+</style>

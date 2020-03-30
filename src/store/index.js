@@ -51,6 +51,9 @@ export default new Vuex.Store({
     isEraseWordPenta(state) {
       return isErase(state.wordPenta);
     },
+    isEraseAllWord(state) {
+      return isErase(state.wordWelcome) && isErase(state.wordTo) && isErase(state.wordCoding) && isErase(state.wordPenta);
+    },
   },
   mutations: {
     setEraseCharacter(state, { id, word }) {
