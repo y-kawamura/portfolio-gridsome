@@ -128,19 +128,17 @@ export default {
 
 <style>
 .dark {
-  /* --color-background: #292929; */
   --color-background: theme('colors.gray.800');
   --color-surface: theme('colors.gray.700');
   --color-primary: theme('colors.teal.200');
   --color-secondary: theme('colors.purple.300');
   --color-onbackground: #A4A4A4;
-  --color-onsurface: #E1E1E1;
+  --color-onsurface: #FCFCFC;
   --color-onprimary: #20162A;
   --color-onsecondary: #20162A;
 }
 
 .light {
-  /* --color-background: #fcfcfc; */
   --color-background: theme('colors.gray.300');
   --color-surface: theme('colors.gray.100');
   --color-primary: theme('colors.teal.500');;
@@ -148,7 +146,7 @@ export default {
   --color-onbackground: #727272;
   --color-onsurface: #202020;
   --color-onprimary: #EADEFC;
-  --color-onsecondary: #fff;
+  --color-onsecondary: #EADEFC;
 }
 
 </style>

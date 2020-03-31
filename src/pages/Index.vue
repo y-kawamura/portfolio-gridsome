@@ -1,10 +1,12 @@
 <template>
   <Layout>
-    <h1 class="
-      text-6xl font-bold font-logo text-yellow-400
-      h-screen flex justify-center items-center flex-col
-      overflow-hidden-y
-    ">
+    <h1 
+      class="
+        text-6xl font-bold font-logo text-uiyellow
+        h-screen flex justify-center items-center flex-col
+        overflow-hidden-y
+      "
+    >
       <span
         v-for="(word, index) in [wordWelcome, wordTo]"
         :key="index"

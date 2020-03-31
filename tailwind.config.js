@@ -13,6 +13,7 @@ module.exports = {
         'onsurface': 'var(--color-onsurface)',
         'onprimary': 'var(--color-onprimary)',
         'onsecondary': 'var(--color-onsecondary)',
+        'uiyellow': '#f1c40f',
       },
       width: {
         '10/100': '10%',
