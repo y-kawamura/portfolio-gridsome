@@ -48,10 +48,10 @@
           <ul class="md:flex">
             <li class="border-b border-primary md:border-none">
               <g-link
+                :class="isActive('/') ? 'bg-primary text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
                 class="
-                  block px-8 py-3 my-2
-                  text-primary hover:bg-primary hover:text-onprimary active:bg-primary active:text-onprimary
-                  transition duration-300 ease-in-out
+                  block px-8 py-3 my-2 md:px-6 md:py-2
+                  text-primary
                   rounded text-center"
                 to="/"
                 >Home</g-link
@@ -59,10 +59,10 @@
             </li>
             <li class="border-b border-primary md:border-none">
               <g-link
+                :class="isActive('/about') ? 'bg-primary text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
                 class="
-                  block px-8 py-3 my-2
-                  text-primary hover:bg-primary hover:text-onprimary
-                  transition duration-300 ease-in-out
+                  block px-8 py-3 my-2 md:px-6 md:py-2 md:ml-2
+                  text-primary
                   rounded text-center"
                 to="/about"
                 >About</g-link
@@ -70,10 +70,10 @@
             </li>
             <li>
               <g-link
+                :class="isActive('/portfolio') ? 'bg-primary text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
                 class="
-                  block px-8 py-3 my-2
-                  text-primary hover:bg-primary hover:text-onprimary
-                  transition duration-300 ease-in-out
+                  block px-8 py-3 my-2 md:px-6 md:py-2 md:ml-2
+                  text-primary
                   rounded text-center"
                 to="/portfolio"
                 >Portfolio</g-link
@@ -111,6 +111,11 @@ export default {
     ...mapGetters(['isEraseAllWord']),
     darkMode() {
       return this.isEraseAllWord;
+    },
+    isActive() {
+      return (path) => {
+        return this.$route.path === path;
+      }
     },
   },
   methods: {
