@@ -3,7 +3,7 @@
   <!-- <div class="rounded shadow-lg bg-surface w-full"> -->
     <div class="flex justify-start items-center">
       <div class="w-2/12 h-10">
-        <img class="w-full h-full" :src="skill.logo.file.url" alt="skill">
+        <g-image class="w-full h-full" :src="skill.logo.file.url" alt="skill"></g-image>
       </div>
       <div class="w-7/12 sm:w-8/12 h-8 ml-5 bg-surface">
         <div

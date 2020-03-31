@@ -1,6 +1,6 @@
 <template>
   <div class="max-w-full rounded overflow-hidden shadow-xl bg-surface">
-    <img class="w-full" :src="portfolio.snapshot.file.url" alt="portfolio.title">
+    <g-image class="w-full" :src="portfolio.snapshot.file.url" alt="portfolio.title"></g-image>
     <div class="px-6 pt-2">
       <div class="font-bold text-2xl text-onsurface">{{portfolio.title}}</div>
     </div>
@@ -8,7 +8,6 @@
       <a :href="portfolio.demo" target="_black" class="text-secondary font-bold mr-6">Demo</a>
       <a :href="portfolio.gitHub" target="_black" class="bg-secondary rounded-full">
         <svg
-          role="img"
           class="fill-current h-8 w-8"
           viewBox="0 0 16 16"
           xmlns="http://www.w3.org/2000/svg"
