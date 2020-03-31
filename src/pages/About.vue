@@ -1,7 +1,7 @@
 <template>
   <Layout>
-    <div overflow-y-scroll h-screen>
-      <h1 class="text-4xl font-logo text-onbackground text-center">Skills</h1>
+    <div class="py-10">
+      <h1 class="pb-8 text-4xl font-logo text-onbackground text-center">Skills</h1>
       <div class="flex flex-wrap">
         <SkillCard
           v-for="skill in $page.allContentfulSkiil.edges"

@@ -132,7 +132,7 @@ export default {
   --color-background: theme('colors.gray.800');
   --color-surface: theme('colors.gray.700');
   --color-primary: theme('colors.teal.200');
-  --color-secondary: theme('colors.purple.200');
+  --color-secondary: theme('colors.purple.300');
   --color-onbackground: #A4A4A4;
   --color-onsurface: #E1E1E1;
   --color-onprimary: #20162A;
@@ -149,7 +149,6 @@ export default {
   --color-onsurface: #202020;
   --color-onprimary: #EADEFC;
   --color-onsecondary: #fff;
-
 }
 
 </style>
