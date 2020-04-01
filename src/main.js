@@ -7,7 +7,7 @@ import store from './store';
 export default function (Vue, { router, head, isClient, appOptions }) {
   appOptions.store = store;
   // Set default layout as a global component
-  Vue.component('Layout', DefaultLayout)
+  // Vue.component('Layout', DefaultLayout)
   
   head.link.push({
     rel: 'stylesheet',
