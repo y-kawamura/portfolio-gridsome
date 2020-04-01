@@ -41,7 +41,7 @@ export default {
 .fade-enter-active, .fade-leave-active {
   /* transform: translate(0px, 0px);  */
   opacity: 1;
-  transition: opacity 500ms;
+  transition: opacity 300ms ease-in-out;
 }
 
 .fade-enter, .fade-leave-to {

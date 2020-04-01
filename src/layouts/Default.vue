@@ -1,19 +1,15 @@
 <template>
   <div 
     :class="darkMode ? 'dark' : 'light'"
-    class="
-      bg-background h-min-screen
-      transition-color duration-1000 ease-in-out
-    "
   >
     <!-- header -->
-    <div class="fixed top-0 w-full bg-background">
+    <div class="fixed top-0 w-full">
       <header
         class="container mx-auto px-4 text-primary pb-1 md:pb-0 md:flex md:justify-between md:items-center">
         <div
           class="
             flex justify-between items-center
-            fixed left-0 w-full px-4 bg-background md:static md:w-auto md:px-0
+            fixed left-0 w-full px-4 md:static md:w-auto md:px-0
             h-16
           "
         >
@@ -40,11 +36,12 @@
           :class="isShowMenu ? 'opacity-100 block' : 'opacity-0 hidden'"
           class="
             md:opacity-100 md:block
-            fixed left-0 w-full bg-background md:static md:w-auto
+            fixed left-0 w-full md:static md:w-auto
             mt-16 md:mt-0
             px-4 md:px-0
             transition-opacity duration-1000 ease-in-out
-          ">
+          "
+        >
           <ul class="md:flex">
             <li class="border-b border-primary md:border-none">
               <g-link
@@ -127,11 +124,28 @@ export default {
       this.refreshMessage();
       this.$router.push({ path: '/' }, () => {});
     },
+    changeTheme(mode) {
+      document.body.className = '';
+      document.body.classList.add(mode);
+    }
   },
+  watch: {
+    darkMode(dark) {
+      this.changeTheme(dark ? 'dark' : 'light');
+    }
+  },
+  created() {
+    // default is light mode
+    this.changeTheme('light');
+  }
 };
 </script>
 
 <style>
+body {
+  background-color: var(--color-background);
+  transition: background-color 1000ms ease-in-out;
+}
 .dark {
   --color-background: theme('colors.gray.800');
   --color-surface: theme('colors.gray.700');
