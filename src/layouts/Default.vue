@@ -1,7 +1,5 @@
 <template>
-  <div 
-    :class="darkMode ? 'dark' : 'light'"
-  >
+  <div>
     <!-- header -->
     <div class="fixed bg-background z-10 top-0 w-full color-animation">
       <header
@@ -98,13 +96,11 @@ export default {
   data() {
     return {
       isShowMenu: false,
+      darkMode: false,
     };
   },
   computed: {
     ...mapGetters(['isEraseAllWord']),
-    darkMode() {
-      return this.isEraseAllWord;
-    },
     isActive() {
       return (path) => {
         return this.$route.path === path;
@@ -126,13 +122,20 @@ export default {
     }
   },
   watch: {
-    darkMode(dark) {
-      this.changeTheme(dark ? 'dark' : 'light');
-    }
+    isEraseAllWord(isErase) {      
+      if (isErase) {
+        // change current color theme
+        this.darkMode = !this.darkMode;
+        this.changeTheme(this.darkMode ? 'dark' : 'light');
+
+        setTimeout(() => {
+          this.refreshMessage();
+        },1000);
+      }
+    },
   },
   created() {
-    // default is light mode
-    this.changeTheme('light');
+    this.changeTheme(this.darkMode ? 'dark' : 'light');
   }
 };
 </script>
