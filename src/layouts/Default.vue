@@ -3,23 +3,17 @@
     :class="darkMode ? 'dark' : 'light'"
   >
     <!-- header -->
-    <div class="fixed top-0 w-full">
+    <div class="fixed bg-background z-10 top-0 w-full color-animation">
       <header
-        class="container mx-auto px-4 text-primary pb-1 md:pb-0 md:flex md:justify-between md:items-center">
-        <div
-          class="
-            flex justify-between items-center
-            fixed left-0 w-full px-4 md:static md:w-auto md:px-0
-            h-16
-          "
-        >
+        class="container mx-auto px-4 text-primary md:flex md:justify-between md:items-center">
+        <div class="flex justify-between items-center h-16">
           <span @click="home" class="font-logo text-3xl tracking-tighter select-none cursor-pointer">
             {{ $static.metadata.siteName }}
           </span>
           <div class="block md:hidden">
             <button
               @click="toggleMenu"
-              class="flex items-center px-3 py-2 rounded text-primary focus:outline-none"
+              class="flex items-center py-2 rounded text-primary focus:outline-none"
             >
               <svg 
                 class="fill-current h-6 w-6"
@@ -33,46 +27,48 @@
           </div>
         </div>
         <nav
-          :class="isShowMenu ? 'opacity-100 block' : 'opacity-0 hidden'"
+          :class="isShowMenu ? 'block' : 'hidden'"
           class="
             md:opacity-100 md:block
-            fixed left-0 w-full md:static md:w-auto
-            mt-16 md:mt-0
+            fixed bg-background left-0 w-full md:static md:w-auto
             px-4 md:px-0
-            transition-opacity duration-1000 ease-in-out
+            color-animation
           "
         >
           <ul class="md:flex">
             <li class="border-b border-primary md:border-none">
               <g-link
-                :class="isActive('/') ? 'bg-primary text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
+                :class="isActive('/') ? 'bg-primary-darken text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
                 class="
                   block px-8 py-3 my-2 md:px-6 md:py-2
                   text-primary
                   rounded text-center"
                 to="/"
+                @click.native="isShowMenu=false"
                 >Home</g-link
               >
             </li>
             <li class="border-b border-primary md:border-none">
               <g-link
-                :class="isActive('/about') ? 'bg-primary text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
+                :class="isActive('/about') ? 'bg-primary-darken text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
                 class="
                   block px-8 py-3 my-2 md:px-6 md:py-2 md:ml-2
                   text-primary
                   rounded text-center"
                 to="/about"
+                @click.native="isShowMenu=false"
                 >About</g-link
               >
             </li>
             <li>
               <g-link
-                :class="isActive('/portfolio') ? 'bg-primary text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
+                :class="isActive('/portfolio') ? 'bg-primary-darken text-onprimary' : 'hover:bg-primary hover:text-onprimary'"
                 class="
                   block px-8 py-3 my-2 md:px-6 md:py-2 md:ml-2
                   text-primary
                   rounded text-center"
                 to="/portfolio"
+                @click.native="isShowMenu=false"
                 >Portfolio</g-link
               >
             </li>
@@ -144,12 +140,18 @@ export default {
 <style>
 body {
   background-color: var(--color-background);
-  transition: background-color 1000ms ease-in-out;
+  transition: background-color 600ms ease-in-out;
 }
+
+.color-animation {
+  transition: 600ms ease-in-out;
+}
+
 .dark {
   --color-background: theme('colors.gray.800');
   --color-surface: theme('colors.gray.700');
   --color-primary: theme('colors.teal.200');
+  --color-primary-darken: theme('colors.teal.400');
   --color-secondary: theme('colors.purple.300');
   --color-onbackground: #A4A4A4;
   --color-onsurface: #FCFCFC;
@@ -160,7 +162,8 @@ body {
 .light {
   --color-background: theme('colors.gray.300');
   --color-surface: theme('colors.gray.100');
-  --color-primary: theme('colors.teal.500');;
+  --color-primary: theme('colors.teal.500');
+  --color-primary-darken: theme('colors.teal.700');
   --color-secondary: theme('colors.purple.500');
   --color-onbackground: #727272;
   --color-onsurface: #202020;

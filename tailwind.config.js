@@ -8,6 +8,7 @@ module.exports = {
         'background': 'var(--color-background)',
         'surface': 'var(--color-surface)',
         'primary': 'var(--color-primary)',
+        'primary-darken': 'var(--color-primary-darken)',
         'secondary': 'var(--color-secondary)',
         'onbackground': 'var(--color-onbackground)',
         'onsurface': 'var(--color-onsurface)',
