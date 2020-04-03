@@ -29,6 +29,11 @@ module.exports = {
         '100/100': '100%',
       }
     },
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+    }
   },
   variants: {},
   plugins: [],
