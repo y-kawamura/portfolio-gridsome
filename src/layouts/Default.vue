@@ -117,8 +117,10 @@ export default {
       this.$router.push({ path: '/' }, () => {});
     },
     changeTheme(mode) {
-      document.body.className = '';
-      document.body.classList.add(mode);
+      if (process.isClient) {
+        document.body.className = '';
+        document.body.classList.add(mode);
+      }
     }
   },
   watch: {
